@@ -3,7 +3,7 @@
    Plugin Name: Content Expire Scheduler
    Plugin URI: https://wordpress.org/plugins/content-expire-scheduler
    Description: Content Expire Scheduler to automatically expire Post and Pages after selected date, and display custom message to front-end user.
-   Version: 1.0
+   Version: 1.1
    Author: Zayed Baloch
    Author URI: http://www.radlabs.biz/
    License: GPL2
@@ -156,3 +156,22 @@ add_action( 'load-post-new.php', 'rl_ces_script');
 add_action( 'load-post.php', 'rl_ces_script');
 
 require_once('ces-settings.php');
+
+// Posts / Pages Columns
+function rl_ces_column_head($defaults) {
+    $defaults['rl_ces_column_table'] = 'Expiry Date';
+    return $defaults;
+}
+function rl_ces_column_content($column_name, $post_ID) {
+  global $post;
+  if ($column_name == 'rl_ces_column_table') {
+    $expires_col = get_post_meta( $post->ID, 'rl_ces_expiry', true );
+    if ($expires_col) {
+      echo $expires_col;
+    }
+  }
+}
+add_filter('manage_posts_columns', 'rl_ces_column_head');
+add_action('manage_posts_custom_column', 'rl_ces_column_content', 10, 2);
+add_filter('manage_pages_columns', 'rl_ces_column_head');
+add_action('manage_pages_custom_column', 'rl_ces_column_content', 10, 2);

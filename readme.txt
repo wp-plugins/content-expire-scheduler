@@ -4,7 +4,7 @@ Donate link: http://radlabs.biz
 Tags: content, post expire, page expire, content expire, content scheduler, content expire scheduler,
 Requires at least: 3.2
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 
 Content Expire Scheduler to automatically expire Post and Pages after selected date, and display custom message to people of expiration.
@@ -52,6 +52,11 @@ No, this plugin not remove posts and page contents.
 
 Yes, easily you can reschedular the expire content from Post/Page Publish box.
 
+= How can I hide the Expiry Date column from post or pages? =
+
+Use the 'Screen Options' to show/hide Expiry Date column.
+
+The 'Screen Options' pull down tab is located in the upper right corner of your Dashboard.
 
 == Screenshots ==
 
@@ -62,10 +67,16 @@ Yes, easily you can reschedular the expire content from Post/Page Publish box.
 
 == Changelog ==
 
+= 1.1 =
+* Added Expiry Date display in Column list on Posts, Pages and Custom Post Type.
+
 = 1.0 =
 * First Release
 
 == Upgrade Notice ==
+
+= 1.1 =
+* Show Expiry Date in WP Table Column list on Posts, Pages and Custom Post Type.
 
 = 1.0 =
 First Release.
