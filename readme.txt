@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: zayedbaloch,
 Donate link: http://radlabs.biz
-Tags: content, post expire, page expire, content expire, content scheduler, content expire scheduler,
+Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
 Tested up to: 4.1
 Stable tag: 1.1
