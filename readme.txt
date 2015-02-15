@@ -4,7 +4,7 @@ Donate link: http://radlabs.biz
 Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 
 Content Expire Scheduler to automatically expire Post and Pages after selected date, and display custom message to people of expiration.
@@ -61,11 +61,15 @@ The 'Screen Options' pull down tab is located in the upper right corner of your 
 == Screenshots ==
 
 1. Post and Page Screen
-2. Setting Menu
-3. Setting page message
+2. Display Content option
+3. Setting Menu
+4. Setting page message
 
 
 == Changelog ==
+
+= 1.2 =
+* Added Keep display the expired content on post and pages.
 
 = 1.1 =
 * Added Expiry Date display in Column list on Posts, Pages and Custom Post Type.
@@ -74,6 +78,9 @@ The 'Screen Options' pull down tab is located in the upper right corner of your 
 * First Release
 
 == Upgrade Notice ==
+
+= 1.2 =
+* Added Keep display the expired content on post and pages.
 
 = 1.1 =
 * Show Expiry Date in WP Table Column list on Posts, Pages and Custom Post Type.

@@ -3,7 +3,7 @@
    Plugin Name: Content Expire Scheduler
    Plugin URI: https://wordpress.org/plugins/content-expire-scheduler
    Description: Content Expire Scheduler to automatically expire Post and Pages after selected date, and display custom message to front-end user.
-   Version: 1.1
+   Version: 1.2
    Author: Zayed Baloch
    Author URI: http://www.radlabs.biz/
    License: GPL2
@@ -30,6 +30,7 @@ function rl_ces_add_expiry_calendar() {
   if( ! empty( $post->ID ) ) {
     $expires = get_post_meta( $post->ID, 'rl_ces_expiry', true );
     $ces_message = get_post_meta( $post->ID, 'rl_ces_expiry_message', true );
+    $ces_keep_content = get_post_meta( $post->ID, 'rl_ces_keep_content', true );
   }
 
   $label = ! empty( $expires ) ? date_i18n( 'Y-n-d', strtotime( $expires ) ) : __( 'Never', RADLABS_TEXTDOMAIN );
@@ -53,6 +54,9 @@ function rl_ces_add_expiry_calendar() {
       <p>
       <label>Custom Message</label><br/>
       <input type="text" name="rl-content-expire-scheduler-message" id="rl-content-expire-scheduler-message" value="<?php echo esc_attr( $ces_message ); ?>"/>
+      </p>
+      <p>
+      <?php echo '<label><input type="checkbox"' . (!empty($ces_keep_content) ? ' checked="checked" ' : null) . 'value="1" name="keep-show-content" /> Keep display page content</label>'; ?>
       </p>
       <p>
         <a href="#" class="rl-content-expire-scheduler-hide button secondary"><?php _e( 'OK', RADLABS_TEXTDOMAIN ); ?></a>
@@ -79,17 +83,19 @@ function rl_ces_save_data( $post_id = 0 ) {
   }
 
   $expiration = ! empty( $_POST['rl-content-expire-scheduler-date'] ) ? sanitize_text_field( $_POST['rl-content-expire-scheduler-date'] ) : false;
-
   $ces_message_save = ! empty( $_POST['rl-content-expire-scheduler-message'] ) ? sanitize_text_field( $_POST['rl-content-expire-scheduler-message'] ) : false;
+  $ces_display_content = ! empty( $_POST['keep-show-content'] ) ? sanitize_text_field( $_POST['keep-show-content'] ) : false;
 
   if( $expiration ) {
     // Save the expiration
     update_post_meta( $post_id, 'rl_ces_expiry', $expiration );
     update_post_meta( $post_id, 'rl_ces_expiry_message', $ces_message_save );
+    update_post_meta( $post_id, 'rl_ces_keep_content', $ces_display_content );
   } else {
     // Remove any existing expiration date
     delete_post_meta( $post_id, 'rl_ces_expiry' );
     delete_post_meta( $post_id, 'rl_ces_expiry_message' );
+    delete_post_meta( $post_id, 'rl_ces_keep_content' );
   }
 }
 
@@ -120,15 +126,22 @@ add_filter( 'the_title', 'rl_ces_content_title', 100, 2);
 function rl_ces_expiry_content($content) {
   global $post;
   $expires_msg = get_post_meta( $post->ID, 'rl_ces_expiry_message', true );
+  $keep_content = get_post_meta( $post->ID, 'rl_ces_keep_content', true );
   $ces_expiry_message = get_option('ces_expiry_message');
 
   if (empty($expires_msg)) {
-    $content = $ces_expiry_message;
+    $expiry_m = $ces_expiry_message;
   }else{
-    $content = $expires_msg;
+    $expiry_m = $expires_msg;
   }
 
-  return $content;
+  if ($keep_content == 1) {
+    return $expiry_m . $content;
+  }else {
+    $content = $expiry_m;
+    return $content;
+  }
+
 }
 
 function close_comments ( $open, $post_id ) {
