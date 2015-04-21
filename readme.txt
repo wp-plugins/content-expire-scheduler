@@ -3,7 +3,7 @@ Contributors: zayedbaloch,
 Donate link: http://radlabs.biz
 Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.2
 License: GPLv2 or later
 
