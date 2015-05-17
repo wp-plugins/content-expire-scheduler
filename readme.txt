@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: zayedbaloch,
+Contributors: zayedbaloch, pixeldesign,
 Donate link: http://radlabs.biz
 Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
