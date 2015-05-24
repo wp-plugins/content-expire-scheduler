@@ -3,7 +3,7 @@
    Plugin Name: Content Expire Scheduler
    Plugin URI: https://wordpress.org/plugins/content-expire-scheduler
    Description: Content Expire Scheduler to automatically expire Post and Pages after selected date, and display custom message to front-end user.
-   Version: 1.2
+   Version: 1.3
    Author: Zayed Baloch
    Author URI: http://www.radlabs.biz/
    License: GPL2
@@ -130,9 +130,9 @@ function rl_ces_expiry_content($content) {
   $ces_expiry_message = get_option('ces_expiry_message');
 
   if (empty($expires_msg)) {
-    $expiry_m = $ces_expiry_message;
+    $expiry_m = '<p class="ces-msg">'.$ces_expiry_message.'</p>';
   }else{
-    $expiry_m = $expires_msg;
+    $expiry_m = '<p class="ces-msg">'.$expires_msg.'</p>';
   }
 
   if ($keep_content == 1) {

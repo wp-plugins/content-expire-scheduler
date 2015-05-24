@@ -4,7 +4,7 @@ Donate link: http://radlabs.biz
 Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
 Tested up to: 4.2
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 
 Content Expire Scheduler to automatically expire Post and Pages after selected date, and display custom message to people of expiration.
@@ -58,6 +58,15 @@ Use the 'Screen Options' to show/hide Expiry Date column.
 
 The 'Screen Options' pull down tab is located in the upper right corner of your Dashboard.
 
+= Custom CSS =
+Use `.ces-msg` CSS class in your .css file and change expiry message color and font-size.
+
+Example:
+`.ces-msg{
+    color: #990000;
+    font-size: 14px;
+}`
+
 == Screenshots ==
 
 1. Post and Page Screen
@@ -67,6 +76,9 @@ The 'Screen Options' pull down tab is located in the upper right corner of your 
 
 
 == Changelog ==
+
+= 1.3 =
+* Added custom CSS class for chaning color and font-size of expiry message.
 
 = 1.2 =
 * Added Keep display the expired content on post and pages.
@@ -78,6 +90,9 @@ The 'Screen Options' pull down tab is located in the upper right corner of your 
 * First Release
 
 == Upgrade Notice ==
+
+= 1.3 =
+* Added custom CSS class for chaning color and font-size of expiry message.
 
 = 1.2 =
 * Added Keep display the expired content on post and pages.
