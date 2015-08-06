@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: zayedbaloch, pixeldesign,
-Donate link: http://radlabs.biz
+Donate link: http://pixeldesign.io/
 Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
 Tested up to: 4.2
@@ -26,8 +26,6 @@ Every page and post have expiry calendar and custom message box and also support
 
 = Note: = Posts / Pages content will not remove from back-end.
 
-= Contact =
-Rad Labs http://www.radlabs.biz
 
 == Installation ==
 
