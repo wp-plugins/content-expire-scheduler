@@ -3,7 +3,7 @@ Contributors: zayedbaloch, pixeldesign,
 Donate link: http://pixeldesign.io/
 Tags: content, posts expire, page expire, content expire, content scheduler, content expire scheduler, post, page
 Requires at least: 3.2
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 1.3
 License: GPLv2 or later
 
